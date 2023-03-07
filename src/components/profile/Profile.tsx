@@ -12,18 +12,21 @@ import {
 } from "@chakra-ui/react";
 
 type ProfileProps = {
-  avatar: string;
-  name: string;
-  link: string;
-  text: string;
-  tags: {
-    tag1: string;
-    tag2: string;
-    tag3: string;
+  profile: {
+    avatar: string;
+    name: string;
+    link: string;
+    text: string;
+    tags?: {
+      tag1: string;
+      tag2: string;
+      tag3: string;
+    };
   };
 };
 
-export default function Profile(props: ProfileProps) {
+export default function Profile(data: ProfileProps) {
+  const { profile } = data;
   return (
     <Center py={6}>
       <Box
@@ -37,7 +40,7 @@ export default function Profile(props: ProfileProps) {
       >
         <Avatar
           size={"xl"}
-          src={props.avatar}
+          src={profile.avatar}
           mb={4}
           pos={"relative"}
           _after={{
@@ -53,48 +56,50 @@ export default function Profile(props: ProfileProps) {
           }}
         />
         <Heading fontSize={"2xl"} fontFamily={"body"}>
-          {props.name}
+          {profile.name}
         </Heading>
         <Text fontWeight={600} color={"gray.500"} mb={4}>
-          {props.link}
+          {profile.link}
         </Text>
         <Text
           textAlign={"center"}
           color={useColorModeValue("gray.700", "gray.400")}
           px={3}
         >
-          {props.text}{" "}
-          <Link href={"#"} color={"blue.400"}>
-            #tag
-          </Link>{" "}
+          {profile.text}{" "}
         </Text>
 
-        <Stack align={"center"} justify={"center"} direction={"row"} mt={6}>
-          <Badge
-            px={2}
-            py={1}
-            bg={useColorModeValue("gray.50", "gray.800")}
-            fontWeight={"400"}
-          >
-            {props.tags.tag1}
-          </Badge>
-          <Badge
-            px={2}
-            py={1}
-            bg={useColorModeValue("gray.50", "gray.800")}
-            fontWeight={"400"}
-          >
-            {props.tags.tag2}
-          </Badge>
-          <Badge
-            px={2}
-            py={1}
-            bg={useColorModeValue("gray.50", "gray.800")}
-            fontWeight={"400"}
-          >
-            {props.tags.tag3}
-          </Badge>
-        </Stack>
+        {profile.tags && (
+          <Stack align={"center"} justify={"center"} direction={"row"} mt={6}>
+            <Badge
+              px={2}
+              py={1}
+              // eslint-disable-next-line react-hooks/rules-of-hooks
+              bg={useColorModeValue("gray.50", "gray.800")}
+              fontWeight={"400"}
+            >
+              {profile.tags?.tag1}
+            </Badge>
+            <Badge
+              px={2}
+              py={1}
+              // eslint-disable-next-line react-hooks/rules-of-hooks
+              bg={useColorModeValue("gray.50", "gray.800")}
+              fontWeight={"400"}
+            >
+              {profile.tags?.tag2}
+            </Badge>
+            <Badge
+              px={2}
+              py={1}
+              // eslint-disable-next-line react-hooks/rules-of-hooks
+              bg={useColorModeValue("gray.50", "gray.800")}
+              fontWeight={"400"}
+            >
+              {profile.tags?.tag3}
+            </Badge>
+          </Stack>
+        )}
 
         <Stack mt={8} direction={"row"} spacing={4}>
           <Button
@@ -105,7 +110,7 @@ export default function Profile(props: ProfileProps) {
               bg: "gray.200",
             }}
           >
-            Message
+            Send a message
           </Button>
           <Button
             flex={1}
@@ -123,7 +128,7 @@ export default function Profile(props: ProfileProps) {
               bg: "blue.500",
             }}
           >
-            Follow
+            Details
           </Button>
         </Stack>
       </Box>
