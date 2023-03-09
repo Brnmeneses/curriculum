@@ -52,7 +52,8 @@ export default function Curriculum() {
         alignItems="center"
         gap="4rem"
       >
-        <Profile profile={profile}></Profile>
+        {/*         <Profile profile={profile}></Profile>
+         */}{" "}
         <CollapseAccordion />
       </Box>
     </>

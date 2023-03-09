@@ -33,10 +33,36 @@ export default function CollapseAccordion() {
             </AccordionButton>
           </h2>
           <AccordionPanel pb={4}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
+            volutpat, nisl eu varius lacinia, lacus urna dictum erat, sed
+            posuere orci metus et neque. Maecenas at nisl eleifend diam
+            condimentum ullamcorper. Sed molestie sem turpis, quis suscipit
+            metus luctus non. Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit. Nulla nulla quam, molestie ac felis a, suscipit mollis quam.
+            Quisque vel rutrum elit. Quisque convallis hendrerit leo et
+            convallis. Donec pharetra libero et nisi interdum blandit. Sed eros
+            sem, tristique rhoncus ligula nec, efficitur ultrices metus.
+            <br />
+            Duis enim diam, mollis nec blandit quis, mollis in eros. Donec
+            sapien odio, semper non est at, fermentum finibus nisi. Nulla sed ex
+            auctor mauris molestie egestas. Quisque ut nisl egestas, eleifend
+            mauris a, rutrum ex. Integer quis pharetra nunc. Maecenas
+            condimentum eros in ipsum aliquet, in euismod lectus facilisis.
+            Integer accumsan vel nisi nec pulvinar. Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit. Nulla eget tempor enim, quis tempus
+            risus.
+            <br />
+            Donec vestibulum aliquam nisi, posuere tempor sem cursus sed. Sed
+            eget pretium erat, a tincidunt sem. Pellentesque rhoncus nibh diam,
+            ut tristique diam efficitur sit amet. Suspendisse sed lacinia ipsum.
+            Aliquam vestibulum, lorem vel mollis sollicitudin, dui ligula
+            condimentum enim, nec interdum nisl lacus quis tortor. In tortor
+            tortor, imperdiet vel ante ut, vehicula porttitor justo. Praesent
+            scelerisque urna finibus tincidunt pulvinar. Cras rhoncus ex sit
+            amet mauris tincidunt, eu varius magna porttitor. Vestibulum eget
+            blandit nulla. Nullam ac neque eget est aliquam faucibus nec eu
+            eros. Nulla nunc ipsum, elementum vitae dolor a, fermentum pharetra
+            nulla. Etiam ultricies mattis mi sit amet malesuada.
           </AccordionPanel>
         </AccordionItem>
 
@@ -53,7 +79,14 @@ export default function CollapseAccordion() {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
+            aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+            nisi ut aliquip ex ea commodo consequat.
           </AccordionPanel>
         </AccordionItem>
 

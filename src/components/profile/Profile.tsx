@@ -30,6 +30,7 @@ export default function Profile(data: ProfileProps) {
   return (
     <Center py={6}>
       <Box
+        minW={"320px"}
         maxW={"320px"}
         w={"full"}
         bg={useColorModeValue("white", "gray.900")}
@@ -38,23 +39,7 @@ export default function Profile(data: ProfileProps) {
         p={6}
         textAlign={"center"}
       >
-        <Avatar
-          size={"xl"}
-          src={profile.avatar}
-          mb={4}
-          pos={"relative"}
-          _after={{
-            content: '""',
-            w: 4,
-            h: 4,
-            bg: "green.300",
-            border: "2px solid white",
-            rounded: "full",
-            pos: "absolute",
-            bottom: 0,
-            right: 3,
-          }}
-        />
+        <Avatar size={"xl"} src={profile.avatar} mb={4} pos={"relative"} />
         <Heading fontSize={"2xl"} fontFamily={"body"}>
           {profile.name}
         </Heading>
@@ -100,7 +85,7 @@ export default function Profile(data: ProfileProps) {
             </Badge>
           </Stack>
         )}
-
+        {/* 
         <Stack mt={8} direction={"row"} spacing={4}>
           <Button
             flex={1}
@@ -130,7 +115,7 @@ export default function Profile(data: ProfileProps) {
           >
             Details
           </Button>
-        </Stack>
+        </Stack> */}
       </Box>
     </Center>
   );
