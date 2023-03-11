@@ -1,6 +1,7 @@
 import type { AppProps } from "next/app";
 import { ChakraProvider } from "@chakra-ui/react";
 import { extendTheme } from "@chakra-ui/react";
+import { appWithTranslation } from "next-i18next";
 
 const colors = {
   brand: {
@@ -12,10 +13,10 @@ const colors = {
 
 const theme = extendTheme({ colors });
 
-export default function App({ Component, pageProps }: AppProps) {
-  return (
-    <ChakraProvider theme={theme}>
-      <Component {...pageProps} />
-    </ChakraProvider>
-  );
-}
+const App = ({ Component, pageProps }: AppProps) => (
+  <ChakraProvider theme={theme}>
+    <Component {...pageProps} />
+  </ChakraProvider>
+);
+
+export default appWithTranslation(App);

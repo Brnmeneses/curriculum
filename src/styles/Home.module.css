@@ -3,10 +3,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 6rem;
+  //padding: 2rem;
   min-height: 100vh;
-  background: linear-gradient(to bottom right, #114357 60%, #f29492);
-
+  /*   background: linear-gradient(to bottom right, #114357 60%, #f29492);
+ */
   font-size: 14px;
   line-height: 1.6;
 }

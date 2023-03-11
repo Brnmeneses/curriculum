@@ -43,17 +43,21 @@ export default function CallToActionWithVideo() {
                 zIndex: -1,
               }}
             >
-              Write once,
+              Olá Mundo,
             </Text>
             <br />
             <Text as={"span"} color={"red.400"}>
-              use everywhere!
+              muito prazer! =P
             </Text>
           </Heading>
           <Text color={"gray.500"}>
-            Snippy is a rich coding snippets app that lets you create your own
-            code snippets, categorize them, and even sync them in the cloud so
-            you can use them anywhere. All that is free!
+            Suspendisse non mattis diam. In id rutrum augue, vel fermentum arcu.
+            Suspendisse interdum dolor velit, a dapibus felis gravida at. Ut
+            tempus nunc eget odio accumsan condimentum ut ut quam. Integer non
+            efficitur ipsum, ac bibendum metus. Etiam iaculis ornare nibh ut
+            rutrum. Sed suscipit vehicula porttitor. Sed metus arcu, mollis nec
+            velit vitae, sagittis dignissim diam. Morbi felis mauris, malesuada
+            quis felis non, dictum laoreet diam. Aliquam ac massa massa.
           </Text>
           <Stack
             spacing={{ base: 4, sm: 6 }}
@@ -64,20 +68,21 @@ export default function CallToActionWithVideo() {
               size={"lg"}
               fontWeight={"normal"}
               px={6}
+              minW={200}
               colorScheme={"red"}
               bg={"red.400"}
               _hover={{ bg: "red.500" }}
             >
-              Get started
+              Biografia
             </Button>
             <Button
               rounded={"full"}
               size={"lg"}
               fontWeight={"normal"}
               px={6}
-              leftIcon={<PlayIcon h={4} w={4} color={"gray.300"} />}
+              minW={200}
             >
-              How It Works
+              Contato
             </Button>
           </Stack>
         </Stack>
