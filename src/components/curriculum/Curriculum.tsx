@@ -14,10 +14,27 @@ export default function Curriculum() {
     //tags: { tag1: "olaMundo", tag2: "teste", tag3: "Super" },
   };
 
+  const actions = [
+    {
+      id: 1,
+      title: "Action 1",
+      description: "This is the description of Action 1",
+    },
+    {
+      id: 2,
+      title: "Action 2",
+      description: "This is the description of Action 2",
+    },
+    {
+      id: 3,
+      title: "Action 3",
+      description: "This is the description of Action 3",
+    },
+  ];
   return (
     <>
       <Header title="" />
-      <ActionPage></ActionPage>
+      <ActionPage actions={actions}></ActionPage>
     </>
   );
 }
