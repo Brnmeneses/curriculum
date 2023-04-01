@@ -1,9 +1,9 @@
 .main {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  //justify-content: center;
   align-items: center;
-  //padding: 2rem;
+  padding: 0rem;
   min-height: 100vh;
   /*   background: linear-gradient(to bottom right, #114357 60%, #f29492);
  */

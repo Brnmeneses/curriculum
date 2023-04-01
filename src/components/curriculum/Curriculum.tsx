@@ -1,6 +1,6 @@
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import ActionPage from "../action/ActionPage";
+import Cards from "../cards/Cards";
 import Header from "../header/Header";
+import Profile from "../profile/Profile";
 
 export default function Curriculum() {
   const avatar = {
@@ -8,10 +8,9 @@ export default function Curriculum() {
   };
   const profile = {
     avatar: avatar.src,
-    name: "Bruno Meneses",
+    bios: "Hi there! I'm Bruno",
+    text: "Frontend developer at Cogna Education",
     link: "@brnmeneses",
-    text: "Frontend developer at Platos.",
-    //tags: { tag1: "olaMundo", tag2: "teste", tag3: "Super" },
   };
 
   const actions = [
@@ -33,8 +32,9 @@ export default function Curriculum() {
   ];
   return (
     <>
-      <Header title="" />
-      <ActionPage actions={actions}></ActionPage>
+      <Header title="..." />
+      <Profile profile={profile} />
+      <Cards />
     </>
   );
 }

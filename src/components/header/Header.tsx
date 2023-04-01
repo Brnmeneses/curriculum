@@ -26,7 +26,7 @@ const Header: React.FC<HeaderProps> = ({ title }) => {
   };
 
   return (
-    <Box borderBottom="1px" borderColor="gray.200" width="100vw">
+    <Box borderColor="gray.50" width="100vw">
       <Flex
         alignItems="center"
         justifyContent="space-between"
