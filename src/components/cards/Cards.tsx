@@ -1,8 +1,19 @@
 import { Box, Heading, HStack, Text } from "@chakra-ui/react";
+import Globe from "../globe/Globe";
 
 function Feature({ title, desc, ...rest }: any) {
   return (
-    <Box p={5} shadow="md" borderWidth="1px" {...rest}>
+    <Box
+      p={5}
+      paddingTop={"16"}
+      shadow="md"
+      borderWidth="1px"
+      rounded={30}
+      maxW="sm"
+      borderRadius="lg"
+      overflow="hidden"
+      {...rest}
+    >
       <Heading fontSize="xl">{title}</Heading>
       <Text mt={4}>{desc}</Text>
     </Box>

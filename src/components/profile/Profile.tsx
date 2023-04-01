@@ -26,7 +26,8 @@ export default function Profile(data: ProfileProps) {
         <Avatar size={"2xl"} src={profile.avatar} mb={4} pos={"relative"} />
         <Heading fontSize={"md"} fontFamily={"mono"}>
           {profile.bios}
-          <Emoji symbol="👍" />
+          <Emoji symbol="✌️" />
+          {/* <Emoji symbol="👍" /> */}
         </Heading>
         <Gradient>{profile.text}</Gradient>
       </Box>

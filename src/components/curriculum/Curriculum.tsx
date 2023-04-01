@@ -1,4 +1,5 @@
 import Cards from "../cards/Cards";
+import Footer from "../footer/Footer";
 import Header from "../header/Header";
 import Profile from "../profile/Profile";
 
@@ -32,9 +33,10 @@ export default function Curriculum() {
   ];
   return (
     <>
-      <Header title="..." />
+      <Header title="Get in touch" />
       <Profile profile={profile} />
       <Cards />
+      {/*       <Footer />*/}
     </>
   );
 }

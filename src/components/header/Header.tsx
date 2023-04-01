@@ -1,6 +1,13 @@
 import React, { useState } from "react";
-import { Box, Heading, Flex, IconButton, useColorMode } from "@chakra-ui/react";
-import { MoonIcon, SunIcon, SettingsIcon } from "@chakra-ui/icons";
+import {
+  Box,
+  Heading,
+  Flex,
+  IconButton,
+  useColorMode,
+  Tooltip,
+} from "@chakra-ui/react";
+import { MoonIcon, SunIcon, SettingsIcon, EmailIcon } from "@chakra-ui/icons";
 import { useTranslation } from "react-i18next";
 
 interface HeaderProps {
@@ -36,40 +43,82 @@ const Header: React.FC<HeaderProps> = ({ title }) => {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        <Heading size="md">{title}</Heading>
         <Flex>
-          <IconButton
+          <Tooltip
+            label={title}
+            aria-label={`{title}  tooltip`}
+            fontSize="sm"
+            openDelay={1000}
+          >
+            <IconButton
+              aria-label={title}
+              variant="ghost"
+              icon={<EmailIcon />}
+              onClick={() => {
+                alert("Get in touch");
+              }}
+              _hover={{
+                bg: "gray.100",
+              }}
+              _active={{
+                bg: "gray.200",
+              }}
+              isRound={true}
+              size="sm"
+              visibility={isHovered ? "visible" : "hidden"}
+            />
+          </Tooltip>
+        </Flex>
+
+        <Flex>
+          <Tooltip
+            label={`Switch to ${colorMode === "light" ? "dark" : "light"} mode`}
             aria-label={`Switch to ${
               colorMode === "light" ? "dark" : "light"
             } mode`}
-            variant="ghost"
-            icon={colorMode === "light" ? <MoonIcon /> : <SunIcon />}
-            onClick={toggleColorMode}
-            _hover={{
-              bg: "gray.100",
-            }}
-            _active={{
-              bg: "gray.200",
-            }}
-            isRound={true}
-            size="sm"
-            visibility={isHovered ? "visible" : "hidden"}
-          />
-          <IconButton
+            fontSize="sm"
+            openDelay={1000}
+          >
+            <IconButton
+              aria-label={`Switch to ${
+                colorMode === "light" ? "dark" : "light"
+              } mode`}
+              variant="ghost"
+              icon={colorMode === "light" ? <MoonIcon /> : <SunIcon />}
+              onClick={toggleColorMode}
+              _hover={{
+                bg: "gray.100",
+              }}
+              _active={{
+                bg: "gray.200",
+              }}
+              isRound={true}
+              size="sm"
+              visibility={isHovered ? "visible" : "hidden"}
+            />
+          </Tooltip>
+          <Tooltip
+            label="Change language"
             aria-label="Change language"
-            variant="ghost"
-            icon={<SettingsIcon />}
-            onClick={handleLanguageChange}
-            _hover={{
-              bg: "gray.100",
-            }}
-            _active={{
-              bg: "gray.200",
-            }}
-            isRound={true}
-            size="sm"
-            visibility={isHovered ? "visible" : "hidden"}
-          />
+            fontSize="sm"
+            openDelay={1000}
+          >
+            <IconButton
+              aria-label="Change language"
+              variant="ghost"
+              icon={<SettingsIcon />}
+              onClick={handleLanguageChange}
+              _hover={{
+                bg: "gray.100",
+              }}
+              _active={{
+                bg: "gray.200",
+              }}
+              isRound={true}
+              size="sm"
+              visibility={isHovered ? "visible" : "hidden"}
+            />
+          </Tooltip>
         </Flex>
       </Flex>
     </Box>
