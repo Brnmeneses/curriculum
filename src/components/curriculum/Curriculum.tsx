@@ -1,5 +1,4 @@
 import Cards from "../cards/Cards";
-import Footer from "../footer/Footer";
 import Header from "../header/Header";
 import Profile from "../profile/Profile";
 
@@ -14,23 +13,6 @@ export default function Curriculum() {
     link: "@brnmeneses",
   };
 
-  const actions = [
-    {
-      id: 1,
-      title: "Action 1",
-      description: "This is the description of Action 1",
-    },
-    {
-      id: 2,
-      title: "Action 2",
-      description: "This is the description of Action 2",
-    },
-    {
-      id: 3,
-      title: "Action 3",
-      description: "This is the description of Action 3",
-    },
-  ];
   return (
     <>
       <Header title="Get in touch" />

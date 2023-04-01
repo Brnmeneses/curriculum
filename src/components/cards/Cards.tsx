@@ -1,7 +1,24 @@
-import { Box, Heading, HStack, Text } from "@chakra-ui/react";
-import Globe from "../globe/Globe";
+import { useState } from "react";
+import {
+  Box,
+  Drawer,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+  DrawerHeader,
+  DrawerBody,
+  Heading,
+  HStack,
+  Text,
+} from "@chakra-ui/react";
 
-function Feature({ title, desc, ...rest }: any) {
+interface FeatureProps {
+  title: string;
+  desc: string;
+  onClick: () => void;
+}
+
+function Feature({ title, desc, onClick }: FeatureProps) {
   return (
     <Box
       p={5}
@@ -12,7 +29,8 @@ function Feature({ title, desc, ...rest }: any) {
       maxW="sm"
       borderRadius="lg"
       overflow="hidden"
-      {...rest}
+      cursor={"pointer"}
+      onClick={onClick}
     >
       <Heading fontSize="xl">{title}</Heading>
       <Text mt={4}>{desc}</Text>
@@ -40,18 +58,53 @@ export default function Cards() {
     },
   };
 
+  const [selectedFeature, setSelectedFeature] = useState<string | null>(null);
+
+  const handleClose = () => {
+    setSelectedFeature(null);
+  };
+
+  const handleFeatureClick = (feature: string) => {
+    setSelectedFeature(feature);
+  };
+
   return (
     <HStack spacing={2} p={2}>
-      <Feature title={features.profile.title} desc={features.profile.desc} />
+      <Feature
+        title={features.profile.title}
+        desc={features.profile.desc}
+        onClick={() => handleFeatureClick("profile")}
+      />
       <Feature
         title={features.education.title}
         desc={features.education.desc}
+        onClick={() => handleFeatureClick("education")}
       />
       <Feature
         title={features.professional.title}
         desc={features.professional.desc}
+        onClick={() => handleFeatureClick("professional")}
       />
-      <Feature title={features.goals.title} desc={features.goals.desc} />
+      <Feature
+        title={features.goals.title}
+        desc={features.goals.desc}
+        onClick={() => handleFeatureClick("goals")}
+      />
+      <Drawer
+        isOpen={selectedFeature !== null}
+        placement="right"
+        onClose={handleClose}
+      >
+        <DrawerOverlay>
+          <DrawerContent>
+            <DrawerCloseButton />
+            <DrawerHeader>{features[selectedFeature]?.title}</DrawerHeader>
+            <DrawerBody>
+              <Text>{features[selectedFeature]?.desc}</Text>
+            </DrawerBody>
+          </DrawerContent>
+        </DrawerOverlay>
+      </Drawer>
     </HStack>
   );
 }
