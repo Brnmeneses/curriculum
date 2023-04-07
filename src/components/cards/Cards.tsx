@@ -10,7 +10,11 @@ import {
   Heading,
   HStack,
   Text,
+  Image,
+  Flex,
 } from "@chakra-ui/react";
+
+import Timeline from "@/components/timeline/Timeline";
 
 interface FeatureProps {
   title: string;
@@ -22,39 +26,90 @@ function Feature({ title, desc, onClick }: FeatureProps) {
   return (
     <Box
       p={5}
-      paddingTop={"16"}
+      paddingTop={"20"}
       shadow="md"
       borderWidth="1px"
       rounded={30}
       maxW="sm"
+      w={"full"}
+      h={"20%"}
       borderRadius="lg"
       overflow="hidden"
       cursor={"pointer"}
       onClick={onClick}
+      _hover={{
+        transform: "translateY(-5px)",
+        boxShadow: "0px 6px 8px #352C67",
+      }}
+      transition=".3s"
     >
-      <Heading fontSize="xl">{title}</Heading>
-      <Text mt={4}>{desc}</Text>
+      <Flex alignItems="center">
+        <Heading mt={3} fontSize="xl">
+          {title}
+        </Heading>
+      </Flex>
+      <Text mt={1}>{desc}</Text>
     </Box>
   );
 }
 
 export default function Cards() {
+  const experiencesArr = [
+    {
+      title: "Backend",
+      company: "SoftSell",
+      startDate: "2011",
+      endDate: "2016",
+      description: "Backend developer",
+    },
+    {
+      title: "Backend",
+      company: "Atos",
+      startDate: "2016",
+      endDate: "2020",
+      description: "Backend developer",
+    },
+    {
+      title: "Fullstack",
+      company: "TSC",
+      startDate: "2020",
+      endDate: "2021",
+      description: "Fullstack developer",
+    },
+    {
+      title: "Frontend",
+      company: "Cogna Education",
+      startDate: "2021",
+      endDate: "2023",
+      description: "Frontend developer",
+    },
+  ];
+
   const features = {
     profile: {
       title: "Profile",
-      desc: "34 yrs old, married from Londrina-BR",
+      desc: "Who I'am",
+      bias: "Brazilian, 34 years old, born in São Paulo, living in Londrina, Paraná, married but without children. Passionate about technology, I look to the future with enthusiasm, I know technology will bring solutions to all the challenges that humanity will face. I love sports in general but road racing and motorsport are my passions.",
+      src: "https://static.preparaenem.com/2022/08/paisagem-natural-suica.jpg",
     },
     education: {
       title: "Education",
-      desc: "Graduated since 2010. Fullstack engenieer. English enthusiast.",
+      desc: "What I learned",
+      bias: "Bachelor in Information Systems from the State University of Northern Paraná, specialization from the Federal Technological University of Paraná. Advanced level English with great ability to speak with native speakers of English, and direct contact with native speakers through classes on the Cambly platform. Several courses carried out through platforms such as Alura and Ignite for deepening in technologies based on javascript.",
+      src: "https://static.preparaenem.com/2022/08/paisagem-natural-suica.jpg",
     },
     professional: {
       title: "Professional",
-      desc: "Expertise in many areas like Education, Oil&Energy, Financial",
+      desc: "My experience",
+      bias: "More than 10 years of experience, being able to work in several business segments such as Education, Energy and Oil, Financial and Industrial areas. Experience working with Spring-boot, Next.js, Node.js technologies.",
+      src: "https://static.preparaenem.com/2022/08/paisagem-natural-suica.jpg",
+      experiences: experiencesArr,
     },
     goals: {
       title: "Goals",
-      desc: "I would like to visit every country in the world",
+      desc: "These are my dreams",
+      bias: "Whenever I can I like to share my travels, my dream is to go around the world. I have a passion for knowing different cultures and understanding how there are the most diverse types of societies and their particularities. #always-travelling",
+      src: "https://static.preparaenem.com/2022/08/paisagem-natural-suica.jpg",
     },
   };
 
@@ -69,7 +124,13 @@ export default function Cards() {
   };
 
   return (
-    <HStack spacing={2} p={2}>
+    <Flex
+      direction={{ base: "column", md: "row" }}
+      mt={4}
+      p={2}
+      w={{ sm: "60%", md: "full" }}
+      gap={2}
+    >
       <Feature
         title={features.profile.title}
         desc={features.profile.desc}
@@ -98,13 +159,37 @@ export default function Cards() {
         <DrawerOverlay>
           <DrawerContent>
             <DrawerCloseButton />
-            <DrawerHeader>{features[selectedFeature]?.title}</DrawerHeader>
+            <DrawerHeader borderBottomWidth="1px">
+              {features[selectedFeature]?.experiences ? null : (
+                <Image
+                  src={features[selectedFeature]?.src}
+                  alt="Profile Picture"
+                  objectFit="fill"
+                  rounded={10}
+                  mr="2"
+                  mt="8"
+                  mb="2"
+                />
+              )}
+              <Text fontSize="lg" mt={2}>
+                {features[selectedFeature]?.title}
+              </Text>
+            </DrawerHeader>
+            {/*             <DrawerHeader>{features[selectedFeature]?.title}</DrawerHeader>
+             */}
             <DrawerBody>
-              <Text>{features[selectedFeature]?.desc}</Text>
+              <Text>{features[selectedFeature]?.bias}</Text>
+              {features[selectedFeature]?.experiences ? (
+                <Box mt={6}>
+                  <Timeline
+                    experiences={features[selectedFeature]?.experiences}
+                  />
+                </Box>
+              ) : null}
             </DrawerBody>
           </DrawerContent>
         </DrawerOverlay>
       </Drawer>
-    </HStack>
+    </Flex>
   );
 }
