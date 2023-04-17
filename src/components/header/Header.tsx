@@ -9,6 +9,8 @@ import {
 } from "@chakra-ui/react";
 import { MoonIcon, SunIcon, SettingsIcon, EmailIcon } from "@chakra-ui/icons";
 import { useTranslation } from "react-i18next";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 interface HeaderProps {
   title: string;
@@ -30,6 +32,20 @@ const Header: React.FC<HeaderProps> = ({ title }) => {
   const handleLanguageChange = () => {
     const newLanguage = i18n.language === "en" ? "es" : "en";
     i18n.changeLanguage(newLanguage);
+  };
+
+  const handleCopyToClipboard = () => {
+    const textToCopy = "brnmeneses@gmail.com"; // Replace with the text you want to copy
+
+    navigator.clipboard
+      .writeText(textToCopy)
+      .then(() => {
+        toast.success("E-mail copied to clipboard!");
+      })
+      .catch((err) => {
+        console.error("Could not copy text: ", err);
+        toast.error("Could not copy e-mail. Please try again.");
+      });
   };
 
   return (
@@ -54,9 +70,7 @@ const Header: React.FC<HeaderProps> = ({ title }) => {
               aria-label={title}
               variant="ghost"
               icon={<EmailIcon />}
-              onClick={() => {
-                alert("Get in touch");
-              }}
+              onClick={handleCopyToClipboard}
               _hover={{
                 bg: "gray.100",
               }}
@@ -117,6 +131,7 @@ const Header: React.FC<HeaderProps> = ({ title }) => {
               isRound={true}
               size="sm"
               visibility={isHovered ? "visible" : "hidden"}
+              isDisabled={true}
             />
           </Tooltip>
         </Flex>

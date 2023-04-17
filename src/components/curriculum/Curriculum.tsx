@@ -18,7 +18,6 @@ export default function Curriculum() {
       <Header title="Get in touch" />
       <Profile profile={profile} />
       <Cards />
-      {/*       <Footer />*/}
     </>
   );
 }

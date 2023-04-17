@@ -27,7 +27,6 @@ export default function Profile(data: ProfileProps) {
         <Heading fontSize={"md"} fontFamily={"mono"}>
           {profile.bios}
           <Emoji symbol="✌️" />
-          {/* <Emoji symbol="👍" /> */}
         </Heading>
         <Gradient>{profile.text}</Gradient>
       </Box>
